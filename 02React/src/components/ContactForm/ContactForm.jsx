@@ -3,8 +3,24 @@ import Button from "../Button/Button";
 import { MdMessage } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
+import { useState } from "react";
 
+// Functional component for the Contact Form
 const ContactForm = () => {
+  // State variables for form inputs
+  const [name, setName] = useState("Amir"); // Default value for the name , email , and text
+  const [email, setEmail] = useState("amiralam8109@gmail.com");
+  const [text, setText] = useState("Hello how are you");
+   // Function to handle form submission
+  const onSubmit = (event)=>{
+    event.preventDefault();     // Prevent default form submission behavior (page reload)
+    // Update name state with form input
+    setName(event.target[0].value);
+    setEmail(event.target[1].value);
+    setText(event.target[2].value);
+    // Clear the form inputs after submission
+    event.target.reset();
+  };
   return (
     <section className= {styles.container}>
       <div className={styles.contact_form}>
@@ -15,7 +31,7 @@ const ContactForm = () => {
         <Button isOutline = {true}
         text="VIA EMAIL FORM" 
         icon={<MdMail fontSize="24px"/>}/>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className={styles.form_control}>
           <label htmlFor="name">Name</label>
           <input type="text"name="name"/>
@@ -34,8 +50,10 @@ const ContactForm = () => {
            }}>
           <Button text="SUBMIT BUTTON"/>
           </div>
+          <div>{name + " " + email + " " + text}</div>
+          </form>
           
-        </form>
+        
       </div>
       <div className={styles.contact_image}>
         <img src="/images/contact.svg" alt="contact image"/>
