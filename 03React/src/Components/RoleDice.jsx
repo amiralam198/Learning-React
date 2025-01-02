@@ -1,7 +1,14 @@
 const RoleDice = () => {
   return (
-    <div>RoleDice</div>
+    <DiceContainer>
+      <div>
+        <img src="/images/dice/dice_1.png" alt="dice_1"/>
+      </div>
+    </DiceContainer>
   )
 }
 
 export default RoleDice;
+
+const DiceContainer = styled.div`
+`;
