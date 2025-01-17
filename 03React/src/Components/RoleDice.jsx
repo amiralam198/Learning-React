@@ -1,3 +1,4 @@
+import { Styled } from "styled-components";
 const RoleDice = () => {
   return (
     <DiceContainer>
@@ -11,4 +12,6 @@ const RoleDice = () => {
 export default RoleDice;
 
 const DiceContainer = styled.div`
+display:flex;
+justify-content:center;
 `;
